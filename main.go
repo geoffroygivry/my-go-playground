@@ -12,6 +12,7 @@ var args = os.Args
 
 func main() {
 	myprint.Printit("hey hey")
+	fmt.Println(args[1:])
 	myMessage, myTime := myprint.MyTime()
 	fmt.Println(myMessage, myTime)
 	fmt.Println(time.Now())
@@ -22,12 +23,16 @@ func main() {
 
 func uniqueArgs(args []string) []string {
 	var uniqueStrings []string
+	uniqueStrings = append(uniqueStrings, args[0])
 	for _, v := range args {
-		for _, i := range uniqueStrings {
-			if v == i {
-				continue
-			} else {
-				uniqueStrings = append(uniqueStrings, v)
+		if len(uniqueStrings) > 0 {
+			for _, i := range uniqueStrings {
+				fmt.Println("i, v :", i, v)
+				if v == i {
+					continue
+				} else {
+					uniqueStrings = append(uniqueStrings, v)
+				}
 			}
 		}
 	}
