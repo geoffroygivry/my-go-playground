@@ -6,9 +6,15 @@ import (
 	"time"
 
 	myprint "./myPrint"
+	sliceexplanation "./slicesTuto"
+	myoop "./interfacesOop"
 )
 
 var args = os.Args
+var newShow = myoop.Show{
+	"Fufu",
+	"Fu",
+}
 
 func main() {
 	myprint.Printit("hey hey")
@@ -19,6 +25,10 @@ func main() {
 	fmt.Println("Hello World!")
 	myUniqueSlice := uniqueArgs(args[1:])
 	fmt.Println(myUniqueSlice)
+	mySuperSlice := sliceexplanation.PrintMySlice()
+	fmt.Println(mySuperSlice)
+
+	newShow.Showcreate()
 }
 
 func uniqueArgs(args []string) []string {
